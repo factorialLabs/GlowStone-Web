@@ -1,18 +1,16 @@
-app.controller("ReservationsController", ['$scope', '$state',
-                                          'Reservation',
+app.controller("ReservationsController", ['$scope','$state', 'Reservation',
 function($scope, $state, Reservation){
     $scope.Reservation;
     
     $scope.reserveTable = function(){
         console.log("ReservationsController.reserveTable");
-        Reservation = $scope.Reservation; 
-        console.log($scope.Reservation);
+        Reservation.data = $scope.Reservation;
+        console.log(Reservation);
         $state.go("reservations-confirm");
     }
 }]);
 
 app.controller("ReservationsConfirmController", ['$scope', 'Reservation', function($scope, Reservation){
-    
-    $scope.Reservation = Reservation;
-    console.log($scope.Reservation);
+    console.log(Reservation);
+    $scope.Reservation = Reservation.data;
 }]);
