@@ -1,5 +1,5 @@
-app.controller("ReservationsController", ['$scope','$state', 'Reservation',
-function($scope, $state, Reservation){
+app.controller("ReservationsController", ['$scope', '$state', 'Reservation', 'User',
+function($scope, $state, Reservation, User){
     $scope.Reservation;
     
     $scope.reserveTable = function(){
@@ -12,7 +12,7 @@ function($scope, $state, Reservation){
     }
 }]);
 
-app.controller("ReservationsConfirmController", ['$scope', 'Reservation', function($scope, Reservation){
+app.controller("ReservationsConfirmController", ['$scope', 'Reservation', 'User', function($scope, Reservation, User){
     console.log(Reservation);
     $scope.Reservation = Reservation.data;
 }]);
