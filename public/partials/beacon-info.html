@@ -3,26 +3,26 @@
     <form>
         <div class="row">
             <div class="input-field col s6">
-                <input id="id" type="text" class="validate" ng-model="currentBeacon.id">
+                <input id="id" type="text" class="validate" ng-model="updatedBeacon.id">
                 <label class="active" for="id">Beacon ID</label>
             </div>
             <div class="input-field col s6">
-                <input id="name" type="text" class="validate" ng-model="currentBeacon.name">
+                <input id="name" type="text" class="validate" ng-model="updatedBeacon.name">
                 <label class="active" for="name">Exhibit Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="image" type="text" class="validate" ng-model="currentBeacon.image">
+                <input id="image" type="text" class="validate" ng-model="updatedBeacon.image">
                 <label class="active" for="image">Image URL</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="description" class="materialize-textarea" ng-model="currentBeacon.description"></textarea>
+                <textarea id="description" class="materialize-textarea" ng-model="updatedBeacon.description"></textarea>
                 <label class="active" for="description">Exhibit Description</label>
             </div>
         </div>
-        <a class="btn-large waves-effect waves-light orange">Modify Beacon</a>
+        <a ng-click="modifyBeacon()" class="btn-large waves-effect waves-light orange">Modify Beacon</a>
     </form>
 </section>

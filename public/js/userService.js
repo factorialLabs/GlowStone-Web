@@ -23,10 +23,15 @@ app.factory("Beacons", function (){
         getBeacon: function (id){
             for (var i = 0; i < beacons.length; i++){
                 if (beacons[i].id === id){
-                    return beacons[i];
+                    return {beacon: beacons[i],
+                            index: i};
                 }
             }
             return false;
+        },
+        updateBeacon: function (updatedBeacon, index){
+            beacons[index] = updatedBeacon;
+            // parse stuff to update server
         }
     }
 });
