@@ -11,24 +11,12 @@ app.config(function ($stateProvider, $urlRouterProvider){
         url: "/",
         templateUrl: "/partials/home.html"
     })
-    .state("login", {
-        url: "/login",
-        templateUrl: "/partials/login.html"
+    .state("beacons",{
+        url: "/beacons",
+        templateUrl: "/partials/beacons.html",
+        controller: "BeaconController"
     })
-    .state("signup", {
-        url: "/signup",
-        templateUrl: "/partials/signup.html"
-    })
-    // Reservations view
-    .state('reservations', {
-        url: "/reservations",
-        templateUrl: "/partials/reservations/reservations.html",
-        controller: "ReservationsController"
-    })
-    // Confirmation page
-    .state("reservations-confirm", {
-        url: "/reservations/confirm",
-        templateUrl: "/partials/reservations/confirm.html",
-        controller: "ReservationsConfirmController"
+    .state("beacons.new", {
+        templateUrl: "/partials/new-beacon.html"
     });
 });

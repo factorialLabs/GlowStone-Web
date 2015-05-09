@@ -1,0 +1,28 @@
+<section class = "new-beacon">
+    <h4>Register a new beacon</h4>
+    <form>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="id" type="text" class="validate" ng-model="newBeacon.id">
+                <label for="id">Beacon ID</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="name" type="text" class="validate" ng-model="newBeacon.name">
+                <label for="name">Exhibit Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="image" type="text" class="validate">
+                <label for="image">Image URL</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="description" class="materialize-textarea"></textarea>
+                <label for="description">Exhibit Description</label>
+            </div>
+        </div>
+        <a ng-click="addBeacon()" class="btn-large waves-effect waves-light orange">Add Beacon</a>
+    </form>
+</section>

@@ -1,10 +1,5 @@
-// Manages user instance
-app.factory("User", function(){
-    return {};
-});
-
 // Manages reservation information
-app.factory("Reservation", function (){
+app.factory("Beacons", function (){
     var data = {};
     return data; 
 });
