@@ -2,4 +2,3 @@
 
 // Declare application
 var app = angular.module('myApp', ['ui.router', 'parse-angular']);
-
