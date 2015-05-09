@@ -7,6 +7,8 @@ var Beacon = function (){
 
 app.controller("BeaconController", ['$scope', '$state', 'Beacons',
 function($scope, $state, Beacons){
+    
+    // Load info from the Beacons service
     $scope.beacons = Beacons.beacons;
     $scope.newBeacon;
     
