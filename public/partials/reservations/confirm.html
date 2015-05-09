@@ -1,0 +1,13 @@
+<section class = "confirm container">
+    <div class = "row">
+        <h1>Confirm</h1>
+        <h2>Please confirm the following info!</h2>
+        <p>Table Number: {{Reservation.tableNum}}</p>
+        <p>Party Size: {{Reservation.numPeople}}</p>
+        <p>Date: {{Reservation.date}}</p>
+        <p>Time: {{Reservation.time}}</p>
+        <a ng-click="confirm()" class="btn-large waves-effect waves-light orange">Confirm</a> 
+        <a ui-sref="reservations" class="btn-large waves-effect waves-light orange">edit</a>
+        <p>{{reservationNum}}</p>
+    </div>
+</section>
