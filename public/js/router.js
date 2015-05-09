@@ -17,11 +17,14 @@ app.config(function ($stateProvider, $urlRouterProvider){
         controller: "BeaconController"
     })
     .state("beacons.new", {
+        url: "/new",
         templateUrl: "/partials/new-beacon.html",
-        controller: "BeaconController"
+        controller: "NewBeaconController"
     })
     .state("beacons.information", {
-        templateUrl: "/partials/beacon-info"
+        url:"/:beaconId",
+        templateUrl: "/partials/beacon-info.html",
+        controller: "BeaconController"
         
     });
 });
