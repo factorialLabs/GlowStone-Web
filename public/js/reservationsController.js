@@ -5,12 +5,14 @@ var Beacon = function (){
     this.image = ""
 };
 
-app.controller("BeaconController", ['$state', 'Beacons',
+app.controller("BeaconController", ['$scope', '$state', 'Beacons',
 function($scope, $state, Beacons){
     $scope.newBeacon;
     
     $scope.addBeacon = function (){
-
+        console.log($scope.newBeacon);
+        Beacons.addBeacon($scope.newBeacon);
+        console.log(Beacons);
         $state.go("beacons");
     }
 }]);

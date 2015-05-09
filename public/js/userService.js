@@ -1,5 +1,11 @@
 // Manages reservation information
 app.factory("Beacons", function (){
-    var data = {};
-    return data; 
+    var beacons = [];
+
+    return {
+        beacons: beacons,
+        addBeacon: function (newBeacon){
+            beacons.push(newBeacon);
+        }
+    }
 });

@@ -1,6 +1,6 @@
 <section class = "new-beacon">
     <h4>Register a new beacon</h4>
-    <form>
+    <form >
         <div class="row">
             <div class="input-field col s6">
                 <input id="id" type="text" class="validate" ng-model="newBeacon.id">
@@ -13,13 +13,13 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="image" type="text" class="validate">
+                <input id="image" type="text" class="validate" ng-model="newBeacon.image">
                 <label for="image">Image URL</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <textarea id="description" class="materialize-textarea"></textarea>
+                <textarea id="description" class="materialize-textarea" ng-model="newBeacon.description"></textarea>
                 <label for="description">Exhibit Description</label>
             </div>
         </div>
