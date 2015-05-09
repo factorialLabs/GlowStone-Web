@@ -5,10 +5,7 @@
                 <div class = "col l4">
                     <h4>Beacons</h4>
                     <ul class="collection">
-                        <a ui-sref="beacons.information" class="collection-item">Alan</a>
-                        <a href="#!" class="collection-item">Alan</a>
-                        <a href="#!" class="collection-item">Alan</a>
-                        <a href="#!" class="collection-item">Alan</a>
+                        <a ui-sref="beacons.information" ng-click="viewBeacon()" class="collection-item" ng-repeat="beacon in beacons">{{beacon.name}}</a>
                     </ul>
                     <a ui-sref="beacons.new" class="btn-large waves-effect waves-light orange">Add Beacon</a>
 

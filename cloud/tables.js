@@ -1,4 +1,4 @@
-var query = new Parse.Query('Table') 
+/*var query = new Parse.Query('Table') 
 
 var tablesList = query.find({
 	success: function (results){
@@ -41,4 +41,4 @@ var selectTable = function (users){
 		}
 	})
 
-}
+}*/

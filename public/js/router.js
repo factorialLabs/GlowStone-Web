@@ -22,5 +22,6 @@ app.config(function ($stateProvider, $urlRouterProvider){
     })
     .state("beacons.information", {
         templateUrl: "/partials/beacon-info"
+        
     });
 });
