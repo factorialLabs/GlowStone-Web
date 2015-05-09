@@ -19,5 +19,8 @@ app.config(function ($stateProvider, $urlRouterProvider){
     .state("beacons.new", {
         templateUrl: "/partials/new-beacon.html",
         controller: "BeaconController"
+    })
+    .state("beacons.information", {
+        templateUrl: "/partials/beacon-info"
     });
 });
