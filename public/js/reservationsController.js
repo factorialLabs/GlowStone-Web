@@ -24,7 +24,8 @@ function($scope, $state, Beacons, $stateParams){
     
     // Individual beacon pages
     if ($stateParams && $stateParams.beaconId){
-        var beacon = Beacons.getBeacon($stateParams.beaconId);
+        var beacon = Beacons.getBeacon($scope.beacons, $stateParams.beaconId);
+        console.log(beacon);
         $scope.currentBeacon = beacon.beacon;
         $scope.currentBeaconIndex = beacon.index;
         $scope.updatedBeacon = $scope.currentBeacon;

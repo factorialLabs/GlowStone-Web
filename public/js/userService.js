@@ -28,14 +28,16 @@ app.factory("Beacons", function (){
             query.find()
             .then(function(results){
                 console.log(results);
+                beacons = results;
                 return results;
             });
         },
 
-        getBeacon: function (id){
+        getBeacon: function (beacons, id){
+            console.log(id);
             for (var i = 0; i < beacons.length; i++){
                 console.log(beacons[i])
-                if (beacons[i].id === id){
+                if (beacons[i].id == id){
                     return {beacon: beacons[i], index: i};
                 }
             }
