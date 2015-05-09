@@ -9,10 +9,10 @@ app.factory("Beacons", function (){
         addBeacon: function (newBeacon){
             var Beacon = Parse.Object.extend("Beacon");
             var beacon = new Beacon();
-            beacon.set("beacon", newBeacon)
+            beacon.set("beacon", newBeacon);
             beacon.save(null, {
                 success: function (result){
-                  newBeacon.objectId = result.id
+                  newBeacon.objectId = result.id;
                   beacons.push(newBeacon);
                 },
                 error: function (beacon, error){
@@ -24,15 +24,11 @@ app.factory("Beacons", function (){
         getBeaconFromParse: function(){
             var Beacon = Parse.Object.extend("Beacon");
             var query = new Parse.Query(Beacon);
-            console.log("called")
-            query.find({
-                success: function (results){
-                    beacons = results;
-                    return beacons;
-                },
-                error: function(error){
-                    console.error('Error:', error)
-                }
+            console.log("called");
+            query.find()
+            .then(function(results){
+                console.log(results);
+                return results;
             });
         },
 
@@ -49,9 +45,9 @@ app.factory("Beacons", function (){
         updateBeacon: function (updatedBeacon, index){
             var Beacon = Parse.Object.extend("Beacon");
             var query = new Parse.Query(Beacon);
-            var beaconObjectId = beacons[index].objectId
-            var updatedBeaconForParse = updatedBeacon
-            delete updatedBeaconForParse.$$hashKey
+            var beaconObjectId = beacons[index].objectId;
+            var updatedBeaconForParse = updatedBeacon;
+            delete updatedBeaconForParse.$$hashKey;
 
             query.get(beaconObjectId, {
                 success:function(result){
@@ -61,7 +57,7 @@ app.factory("Beacons", function (){
                             beacons[index] = updatedBeacon;
                         },
                         error:function(beacon, error){
-                            console.log(error)
+                            console.log(error);
                         }
                     });
                 },
