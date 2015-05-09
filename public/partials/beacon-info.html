@@ -1,12 +1,14 @@
 <section class = "beacon-info">
-    <h4>{{beacons}}</h4>
+    <h4>{{currentBeacon}}</h4>
     <form>
         <div class="row">
             <div class="input-field col s6">
-                <input id="id" type="text" class="validate" ng-model="newBeacon.id">
+                <input id="id" type="text" class="validate" ng-model="currentBeacon.id">
+                <label for="id">Beacon ID</label>
             </div>
             <div class="input-field col s6">
-                <input id="name" type="text" class="validate" ng-model="newBeacon.name">
+                <input id="name" type="text" class="validate" ng-model="currentBeacon.name">
+                <label for="name">Exhibit Name</label>
             </div>
         </div>
         <div class="row">

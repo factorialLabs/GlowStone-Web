@@ -5,22 +5,26 @@ var Beacon = function (){
     this.image = ""
 };
 
-app.controller("BeaconController", ['$scope', '$state', 'Beacons',
-function($scope, $state, Beacons){
+app.controller("BeaconController", ['$scope', '$state', 'Beacons', '$stateParams',
+function($scope, $state, Beacons, $stateParams){
     
     // Load info from the Beacons service
     $scope.beacons = Beacons.beacons;
+    console.log($stateParams);
+    if ($stateParams && $stateParams.beaconId){
+        
+        $scope.currentBeacon = Beacons.getBeacon($stateParams.beaconId);
+    }
+}]);
+
+app.controller("NewBeaconController", ['$scope', '$state', 'Beacons',
+function($scope, $state, Beacons){
     $scope.newBeacon;
     
     $scope.addBeacon = function (){
         console.log($scope.newBeacon);
         Beacons.addBeacon($scope.newBeacon);
         console.log(Beacons);
-        $scope.beacons = Beacons.beacons;
         $state.go("beacons");
-    }
-
-    $scope.viewBeacon = function(){
-    	console.log($scope.beacons)
     }
 }]);

@@ -5,6 +5,7 @@ app.factory("Beacons", function (){
     return {
         beacons: beacons,
         addBeacon: function (newBeacon){
+            /*
             var Beacon = Parse.Object.extend({
                 className: "Beacon" 
             });
@@ -16,7 +17,16 @@ app.factory("Beacons", function (){
                     console.log(error);
                 }
             });
+            */
             beacons.push(newBeacon);
+        },
+        getBeacon: function (id){
+            for (var i = 0; i < beacons.length; i++){
+                if (beacons[i].id === id){
+                    return beacons[i];
+                }
+            }
+            return false;
         }
     }
 });
