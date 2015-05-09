@@ -16,6 +16,9 @@ function($scope, $state, Beacons, $stateParams){
     query.find()
     .then(function(results){
         $scope.beacons = results;
+        for (var i = 0; i < $scope.beacons.length; i++){
+            $scope.beacons[i] = $scope.beacons[i].attributes.beacon;
+        }
         console.log($scope.beacons);
     });
     
