@@ -9,8 +9,7 @@ app.controller("BeaconController", ['$scope', '$state', 'Beacons', '$stateParams
 function($scope, $state, Beacons, $stateParams){
     
     // Load info from the Beacons service
-    $scope.beacons = Beacons.beacons; // for the sidebar
-    
+    $scope.beacons = Beacons.getBeaconFromParse(); // for the sidebar
     // Individual beacon pages
     if ($stateParams && $stateParams.beaconId){
         var beacon = Beacons.getBeacon($stateParams.beaconId);
