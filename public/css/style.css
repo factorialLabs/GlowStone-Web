@@ -4,7 +4,7 @@ html {
   width: 100%; }
 
 body {
-  margin-bottom: 200px; }
+  margin-bottom: 240px; }
 
 nav .brand-logo {
   height: 100%; }
@@ -37,7 +37,7 @@ div.section.no-pad-bot {
     background-color: #448AFF; }
 
 footer {
-  height: 200px;
+  height: 240px;
   position: absolute;
   bottom: 0;
   width: 100%; }
