@@ -17,9 +17,10 @@ function($scope, $state, Beacons, $stateParams){
         $scope.beacons = results;
         for (var i = 0; i < $scope.beacons.length; i++){
             $scope.beacons[i] = $scope.beacons[i].attributes.beacon;
+            
         }
 	        // Individual beacon pages
-	    	if ($stateParams && $stateParams.beaconId){
+	    if ($stateParams && $stateParams.beaconId){
 	        var beacon = Beacons.getBeacon($scope.beacons, $stateParams.beaconId);
 	        $scope.currentBeacon = beacon.beacon;
 	        $scope.currentBeaconIndex = beacon.index;
@@ -45,8 +46,11 @@ function($scope, $state, Beacons){
         //console.log($scope.newBeacon);
         Beacons.addBeacon($scope.newBeacon);
         //console.log(Beacons);
-         Beacon = Parse.Object.extend("Beacon");
+        Beacon = Parse.Object.extend("Beacon");
 		  
         $state.go("beacons");
+        $scope.beacons = Beacons.beacons;
+     	console.log($scope.beacons)   
+     	$state.reload();
     }
 }]);

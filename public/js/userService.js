@@ -12,7 +12,8 @@ app.factory("Beacons", function (){
             beacon.set("beacon", newBeacon);
             beacon.save(null, {
                 success: function (result){
-                    console.log("created")
+                    beacons = result
+                    console.log(beacons)
                 },
                 error: function (beacon, error){
                     console.log(error);
@@ -21,6 +22,7 @@ app.factory("Beacons", function (){
             
         },
         getBeaconFromParse: function(){
+            console.log("trying update")
             var Beacon = Parse.Object.extend("Beacon");
             var query = new Parse.Query(Beacon);
             console.log("called");
@@ -33,7 +35,7 @@ app.factory("Beacons", function (){
         },
 
         getBeacon: function (beacons, id){
-            console.log(beacons)
+            // console.log(beacons)
             for (var i = 0; i < beacons.length; i++){
                 if (beacons[i].id == id){
                     return {beacon: beacons[i], index: i};
