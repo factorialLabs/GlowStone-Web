@@ -31,8 +31,9 @@ function($scope, $state, Beacons, $stateParams){
     
     
     $scope.modifyBeacon = function () {
-    	console.log($scope.currentBeaconIndex)
         Beacons.updateBeacon($scope.updatedBeacon, $scope.currentBeaconIndex);
+        $scope.beacons = Beacons.beacons;
+        $state.reload();
         $state.go("beacons");
     }
 }]);
@@ -50,7 +51,6 @@ function($scope, $state, Beacons){
 		  
         $state.go("beacons");
         $scope.beacons = Beacons.beacons;
-     	console.log($scope.beacons)   
      	$state.reload();
     }
 }]);

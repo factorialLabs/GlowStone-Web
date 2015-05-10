@@ -58,6 +58,7 @@ app.factory("Beacons", function (){
                     result.set("beacon", updatedBeacon);
                     result.save(null,{
                         success:function(beacon){
+                            beacons = beacon;
                             console.log("modified");
                         },
                         error:function(beacon, error){
