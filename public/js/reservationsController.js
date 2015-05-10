@@ -38,8 +38,10 @@ function ($scope, $state, $stateParams, Beacons){
     }
 
     $scope.deleteBeacon = function () {
-        Beacons.deleteBeacon($scope.updatedBeacon);
-        $state.go("beacons", {}, {reload:true});
+        Beacons.deleteBeacon($scope.updatedBeacon, function(){
+            $state.go("beacons", {}, {reload:true});
+        });
+        
     }
     
 }]);
