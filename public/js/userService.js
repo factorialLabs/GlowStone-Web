@@ -21,7 +21,7 @@ app.factory("Beacons", function (){
             });
             
         },
-        getBeaconFromParse: function(){
+        getBeaconFromParse: function(callback){
             console.log("trying update")
             var Beacon = Parse.Object.extend("Beacon");
             var query = new Parse.Query(Beacon);
@@ -30,6 +30,8 @@ app.factory("Beacons", function (){
             .then(function(results){
                 console.log(results);
                 beacons = results;
+                console.log(beacons);
+                callback(results);
             });
         },
 
