@@ -1,6 +1,7 @@
 @import "variables";
 
 $footerHeight: 200px;
+$blue: #448AFF;
 
 html {
     position: relative;
@@ -31,7 +32,12 @@ div.section.no-pad-bot{
     }
 }
 
-
+.collection a.collection-item{
+    color: $blue;
+    &.active{
+        background-color: $blue;
+    }
+}
 
 footer{
     height: $footerHeight;

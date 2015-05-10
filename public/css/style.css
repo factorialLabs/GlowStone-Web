@@ -21,6 +21,11 @@ div.section.no-pad-bot {
     div.section.no-pad-bot .container h1 {
       margin-top: 0; }
 
+.collection a.collection-item {
+  color: #448AFF; }
+  .collection a.collection-item.active {
+    background-color: #448AFF; }
+
 footer {
   height: 200px;
   position: absolute;
