@@ -1,1 +1,19 @@
 @import "variables";
+div.section.no-pad-bot{
+    padding-top: 0;
+    .museum-img{
+        background-image: url("../img/museum.jpg");
+        background-size: cover;
+        min-height: 500px;
+        position: relative;
+    }
+    .container{
+        position: absolute;
+        left: 0;
+        top: 70px;
+        right: 0;
+        h1{
+            margin-top: 0;
+        }
+    }
+}
