@@ -1,3 +1,11 @@
+html {
+  position: relative;
+  min-height: 100%;
+  width: 100%; }
+
+body {
+  margin-bottom: 200px; }
+
 div.section.no-pad-bot {
   padding-top: 0; }
   div.section.no-pad-bot .museum-img {
@@ -12,5 +20,11 @@ div.section.no-pad-bot {
     right: 0; }
     div.section.no-pad-bot .container h1 {
       margin-top: 0; }
+
+footer {
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
 
 /*# sourceMappingURL=style.css.map */

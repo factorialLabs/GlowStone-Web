@@ -1,4 +1,17 @@
 @import "variables";
+
+$footerHeight: 200px;
+
+html {
+    position: relative;
+    min-height: 100%;
+    width: 100%;
+}
+
+body{
+    margin-bottom: $footerHeight;
+}
+
 div.section.no-pad-bot{
     padding-top: 0;
     .museum-img{
@@ -16,4 +29,13 @@ div.section.no-pad-bot{
             margin-top: 0;
         }
     }
+}
+
+
+
+footer{
+    height: $footerHeight;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
