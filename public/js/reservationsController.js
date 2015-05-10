@@ -47,7 +47,7 @@ function ($scope, $state, $stateParams, Beacons){
             }
         );
     }
-    
+    /*
     $scope.modifyBeacon = function () {
         Beacons.updateBeacon($scope.updatedBeacon, $scope.currentBeaconIndex);
         $state.reload();
@@ -61,6 +61,7 @@ function ($scope, $state, $stateParams, Beacons){
         });
         
     }
+    */
     
 }]);
 

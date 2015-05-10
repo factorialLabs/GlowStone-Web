@@ -3,6 +3,10 @@
 $footerHeight: 200px;
 $blue: #448AFF;
 
+@mixin RobotoLight {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
 html {
     position: relative;
     min-height: 100%;
@@ -61,6 +65,19 @@ footer{
 @media (max-width: 992px){
     nav .brand-logo, #logo-container{
         left: 38%;
+    }
+}
+
+h5{
+    @include RobotoLight;
+}
+
+
+.context, .iot{
+    position: relative;
+    top: 170px;
+    h4{
+        text-align: center;
     }
 }
 

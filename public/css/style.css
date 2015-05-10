@@ -46,4 +46,14 @@ footer {
   nav .brand-logo, #logo-container {
     left: 38%; } }
 
+h5 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; }
+
+.context, .iot {
+  position: relative;
+  top: 170px; }
+  .context h4, .iot h4 {
+    text-align: center; }
+
 /*# sourceMappingURL=style.css.map */
