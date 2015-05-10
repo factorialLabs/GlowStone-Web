@@ -10,8 +10,7 @@ function($scope, $state, Beacons, $stateParams){
     
     // Load info from the Beacons service
     //$scope.beacons = Beacons.getBeaconFromParse(); // for the sidebar
-    
-    Beacon = Parse.Object.extend("Beacon");
+    var Beacon = Parse.Object.extend("Beacon");
     var query = new Parse.Query(Beacon);
     query.find()
     .then(function(results){
@@ -19,20 +18,21 @@ function($scope, $state, Beacons, $stateParams){
         for (var i = 0; i < $scope.beacons.length; i++){
             $scope.beacons[i] = $scope.beacons[i].attributes.beacon;
         }
-        console.log($scope.beacons);
+	        // Individual beacon pages
+	    	if ($stateParams && $stateParams.beaconId){
+	        var beacon = Beacons.getBeacon($scope.beacons, $stateParams.beaconId);
+	        $scope.currentBeacon = beacon.beacon;
+	        $scope.currentBeaconIndex = beacon.index;
+	        $scope.updatedBeacon = $scope.currentBeacon;
+	    }
     });
     
-    // Individual beacon pages
-    if ($stateParams && $stateParams.beaconId){
-        var beacon = Beacons.getBeacon($scope.beacons, $stateParams.beaconId);
-        console.log(beacon);
-        $scope.currentBeacon = beacon.beacon;
-        $scope.currentBeaconIndex = beacon.index;
-        $scope.updatedBeacon = $scope.currentBeacon;
-    }
+    
     
     $scope.modifyBeacon = function () {
+    	console.log($scope.currentBeaconIndex)
         Beacons.updateBeacon($scope.updatedBeacon, $scope.currentBeaconIndex);
+        $state.go("beacons");
     }
 }]);
 
@@ -45,6 +45,8 @@ function($scope, $state, Beacons){
         //console.log($scope.newBeacon);
         Beacons.addBeacon($scope.newBeacon);
         //console.log(Beacons);
+         Beacon = Parse.Object.extend("Beacon");
+		  
         $state.go("beacons");
     }
 }]);

@@ -12,8 +12,7 @@ app.factory("Beacons", function (){
             beacon.set("beacon", newBeacon);
             beacon.save(null, {
                 success: function (result){
-                  newBeacon.objectId = result.id;
-                  beacons.push(newBeacon);
+                    console.log("created")
                 },
                 error: function (beacon, error){
                     console.log(error);
@@ -34,9 +33,8 @@ app.factory("Beacons", function (){
         },
 
         getBeacon: function (beacons, id){
-            console.log(id);
+            console.log(beacons)
             for (var i = 0; i < beacons.length; i++){
-                console.log(beacons[i])
                 if (beacons[i].id == id){
                     return {beacon: beacons[i], index: i};
                 }
@@ -45,18 +43,20 @@ app.factory("Beacons", function (){
         },
 
         updateBeacon: function (updatedBeacon, index){
-            var Beacon = Parse.Object.extend("Beacon");
-            var query = new Parse.Query(Beacon);
-            var beaconObjectId = beacons[index].objectId;
             var updatedBeaconForParse = updatedBeacon;
             delete updatedBeaconForParse.$$hashKey;
 
-            query.get(beaconObjectId, {
+            var Beacon = Parse.Object.extend("Beacon");
+            var query = new Parse.Query(Beacon);
+            query.equalTo("beacon.id", updatedBeacon.id)
+
+            query.first({
                 success:function(result){
+                    console.log(result);
                     result.set("beacon", updatedBeacon);
                     result.save(null,{
                         success:function(beacon){
-                            beacons[index] = updatedBeacon;
+                            console.log("modified");
                         },
                         error:function(beacon, error){
                             console.log(error);
