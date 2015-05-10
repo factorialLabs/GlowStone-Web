@@ -42,4 +42,8 @@ footer {
   bottom: 0;
   width: 100%; }
 
+@media (max-width: 992px) {
+  nav .brand-logo, #logo-container {
+    left: 38%; } }
+
 /*# sourceMappingURL=style.css.map */
