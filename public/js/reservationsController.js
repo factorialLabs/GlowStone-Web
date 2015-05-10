@@ -29,25 +29,23 @@ function ($scope, $state, $stateParams, Beacons){
         $scope.currentBeaconIndex = beacon.index;
         $scope.updatedBeacon = $scope.currentBeacon;
     }
-    else{
-
-        var Beacon = Parse.Object.extend("Beacon");
-        var query = new Parse.Query(Beacon);
-        query.find()
-        .then(function(results){
-            $scope.beacons = results;
-            for (var i = 0; i < $scope.beacons.length; i++){
-                $scope.beacons[i] = $scope.beacons[i].attributes.beacon;
-                
+    else if (!$scope.beacons){
+        Beacons.getBeaconFromParse(
+            function(results){
+                $scope.beacons = results;
+                for (var i = 0; i < $scope.beacons.length; i++){
+                    $scope.beacons[i] = $scope.beacons[i].attributes.beacon;
+                    
+                }
+                    // Individual beacon pages
+                if ($stateParams && $stateParams.beaconId){
+                    var beacon = Beacons.getBeacon($scope.beacons, $stateParams.beaconId);
+                    $scope.currentBeacon = beacon.beacon;
+                    $scope.currentBeaconIndex = beacon.index;
+                    $scope.updatedBeacon = $scope.currentBeacon;
+                }
             }
-                // Individual beacon pages
-            if ($stateParams && $stateParams.beaconId){
-                var beacon = Beacons.getBeacon($scope.beacons, $stateParams.beaconId);
-                $scope.currentBeacon = beacon.beacon;
-                $scope.currentBeaconIndex = beacon.index;
-                $scope.updatedBeacon = $scope.currentBeacon;
-            }
-        });
+        );
     }
     
     $scope.modifyBeacon = function () {
