@@ -36,6 +36,12 @@ function($scope, $state, Beacons, $stateParams){
         $state.reload();
         $state.go("beacons");
     }
+
+    $scope.deleteBeacon = function () {
+        Beacons.deleteBeacon($scope.updatedBeacon);
+        $state.reload();
+        $state.go("beacons");
+    }
 }]);
 
 app.controller("NewBeaconController", ['$scope', '$state', 'Beacons',

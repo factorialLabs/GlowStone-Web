@@ -30,7 +30,6 @@ app.factory("Beacons", function (){
             .then(function(results){
                 console.log(results);
                 beacons = results;
-                return results;
             });
         },
 
@@ -70,6 +69,31 @@ app.factory("Beacons", function (){
                     console.log(error);
                 }
             });
+        },
+
+        deleteBeacon: function (toDeleteBeacon){
+            console.log(toDeleteBeacon);
+            var Beacon = Parse.Object.extend("Beacon");
+            var query = new Parse.Query(Beacon);
+            query.equalTo("beacon.id", toDeleteBeacon.id)
+
+            query.first({
+                success:function(result){
+                    result.destroy();
+                    result.save(null,{
+                        success:function(beacon){
+                            beacons = beacon;
+                            console.log("deleted");
+                        },
+                        error:function(beacon, error){
+                            console.log(error);
+                        }
+                    });
+                },
+                error: function(result, error){
+                    console.log(error);
+                }
+            });            
         }
     }
 });
