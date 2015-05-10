@@ -3,8 +3,8 @@
     <form>
         <div class="row">
             <div class="input-field col s6">
-                <input id="id" type="text" class="validate" ng-model="updatedBeacon.id" readonly>
-                <label class="active" for="id">Beacon ID (non modifiable)</label>
+                <input id="id" type="text" class="validate" ng-model="updatedBeacon.id">
+                <label class="active" for="id">Beacon ID</label>
             </div>
             <div class="input-field col s6">
                 <input id="name" type="text" class="validate" ng-model="updatedBeacon.name">
@@ -23,6 +23,6 @@
                 <label class="active" for="description">Exhibit Description</label>
             </div>
         </div>
-        <a ng-click="modifyBeacon()" class="btn-large waves-effect waves-light amber">Modify Beacon</a>
+        <a ng-click="modifyBeacon()" class="btn-large waves-effect waves-light blue">Modify Beacon</a>
     </form>
 </section>
