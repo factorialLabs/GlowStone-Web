@@ -6,6 +6,16 @@ html {
 body {
   margin-bottom: 200px; }
 
+nav .brand-logo {
+  height: 100%; }
+  nav .brand-logo img.responsive-img {
+    height: 100%;
+    width: auto; }
+  nav .brand-logo span.brand {
+    display: inline-block;
+    height: 100%;
+    position: absolute; }
+
 div.section.no-pad-bot {
   padding-top: 0; }
   div.section.no-pad-bot .museum-img {
