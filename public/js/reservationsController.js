@@ -5,58 +5,55 @@ var Beacon = function (){
     this.image = ""
 };
 
-app.controller("BeaconController", ['$scope', '$state', 'Beacons', '$stateParams',
-function($scope, $state, Beacons, $stateParams){
-    
+app.controller("BeaconController", ['$scope', '$state', 'Beacons',
+function($scope, $state, Beacons){
+    $scope.beacons;
     // Load info from the Beacons service
-    //$scope.beacons = Beacons.getBeaconFromParse(); // for the sidebar
-    var Beacon = Parse.Object.extend("Beacon");
-    var query = new Parse.Query(Beacon);
-    query.find()
-    .then(function(results){
-        $scope.beacons = results;
-        for (var i = 0; i < $scope.beacons.length; i++){
-            $scope.beacons[i] = $scope.beacons[i].attributes.beacon;
-            
+    Beacons.getBeaconFromParse(
+        function(results){
+            $scope.beacons = results;
+            for (var i = 0; i < results.length; i++){
+                $scope.beacons[i] = results[i].attributes.beacon;
+            }
+            console.log($scope.beacons);
         }
-	        // Individual beacon pages
-	    if ($stateParams && $stateParams.beaconId){
-	        var beacon = Beacons.getBeacon($scope.beacons, $stateParams.beaconId);
-	        $scope.currentBeacon = beacon.beacon;
-	        $scope.currentBeaconIndex = beacon.index;
-	        $scope.updatedBeacon = $scope.currentBeacon;
-	    }
-    });
-    
-    
+    );
+}]);
+
+app.controller("ExistingBeaconController", ['$scope', '$state', '$stateParams', 'Beacons',
+function ($scope, $state, $stateParams, Beacons){
+
+    if ($stateParams && $stateParams.beaconId){
+        var beacon = Beacons.getBeacon($scope.beacons, $stateParams.beaconId);
+        $scope.currentBeacon = beacon.beacon;
+        $scope.currentBeaconIndex = beacon.index;
+        $scope.updatedBeacon = $scope.currentBeacon;
+    }    
     
     $scope.modifyBeacon = function () {
         Beacons.updateBeacon($scope.updatedBeacon, $scope.currentBeaconIndex);
-        $scope.beacons = Beacons.beacons;
         $state.reload();
         $state.go("beacons");
+
     }
 
     $scope.deleteBeacon = function () {
-        Beacons.deleteBeacon($scope.updatedBeacon);
-        $state.reload();
-        $state.go("beacons");
+        Beacons.deleteBeacon($scope.updatedBeacon, function(){
+            $state.go("beacons", {}, {reload:true});
+        });
+        
     }
+    
 }]);
 
 app.controller("NewBeaconController", ['$scope', '$state', 'Beacons',
 function($scope, $state, Beacons){
     $scope.newBeacon;
     
-    // Make a new beacon
     $scope.addBeacon = function (){
-        //console.log($scope.newBeacon);
         Beacons.addBeacon($scope.newBeacon);
-        //console.log(Beacons);
-        Beacon = Parse.Object.extend("Beacon");
-		  
-        $state.go("beacons");
+        
+        $state.go("beacons", {}, {reload:true});
         $scope.beacons = Beacons.beacons;
-     	$state.reload();
     }
 }]);

@@ -21,7 +21,7 @@ app.factory("Beacons", function (){
             });
             
         },
-        getBeaconFromParse: function(){
+        getBeaconFromParse: function(callback){
             console.log("trying update")
             var Beacon = Parse.Object.extend("Beacon");
             var query = new Parse.Query(Beacon);
@@ -30,6 +30,8 @@ app.factory("Beacons", function (){
             .then(function(results){
                 console.log(results);
                 beacons = results;
+                console.log(beacons);
+                callback(results);
             });
         },
 
@@ -71,11 +73,11 @@ app.factory("Beacons", function (){
             });
         },
 
-        deleteBeacon: function (toDeleteBeacon){
+        deleteBeacon: function (toDeleteBeacon, callback){
             console.log(toDeleteBeacon);
             var Beacon = Parse.Object.extend("Beacon");
             var query = new Parse.Query(Beacon);
-            query.equalTo("beacon.id", toDeleteBeacon.id)
+            query.equalTo("beacon.id", toDeleteBeacon.id);
 
             query.first({
                 success:function(result){
@@ -84,14 +86,19 @@ app.factory("Beacons", function (){
                         success:function(beacon){
                             beacons = beacon;
                             console.log("deleted");
+                            callback();
                         },
                         error:function(beacon, error){
                             console.log(error);
+                            console.log(beacon);
+                            console.log(beacons);
+                            callback();
                         }
                     });
                 },
                 error: function(result, error){
                     console.log(error);
+                    callback();
                 }
             });            
         }
